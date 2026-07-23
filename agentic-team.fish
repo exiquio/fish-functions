@@ -10,7 +10,7 @@ function agentic-team --description "Launch Goose AI team in interactive mode (l
     set -e argv[1]
 
     # Ensure native DeepSeek provider
-    set -lx GOOSE_PROVIDER deepseek
+    set -lx GOOSE_PROVIDER custom_deepseek
 
     if test "$mode" = light
         set -lx GOOSE_MODEL deepseek-v4-pro
