@@ -15,11 +15,15 @@ function agentic-team --description "Launch Goose AI team in interactive mode (l
     if test "$mode" = light
         set -lx GOOSE_MODEL deepseek-v4-pro
         set -lx GOOSE_THINKING_EFFORT low
+        cat ~/.config/goose/guardrails.md ~/Code/Personal/goose-configs/STATE.md > /tmp/goose-moim-context.txt
+        set -lx GOOSE_MOIM_MESSAGE_FILE /tmp/goose-moim-context.txt
         command goose session --name agentic-team-light $argv
 
     else if test "$mode" = heavy
         set -lx GOOSE_MODEL deepseek-v4-pro
         set -lx GOOSE_THINKING_EFFORT max
+        cat ~/.config/goose/guardrails.md ~/Code/Personal/goose-configs/STATE.md > /tmp/goose-moim-context.txt
+        set -lx GOOSE_MOIM_MESSAGE_FILE /tmp/goose-moim-context.txt
         command goose session --name agentic-team-heavy $argv
 
     else
